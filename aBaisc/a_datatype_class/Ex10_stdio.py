@@ -42,7 +42,7 @@ print(numpy.std(a))
 #전화 키패드에는 각 숫자키마다 3개의 문자가 적혀있다. 사용자가입력한 문자열을 전화기의 숫자키로 변환하는 프로그램을 작성해보자
 tel_list = {'ABC':2,'DEF':3,'GHI':4,'JKL':5,'MNO':6,'PQRS':7,'TUV':8,'WXYZ':9}
 print(tel_list.keys())
-b=[]
+
 num=input("문자열을 입력하시오")
 for i in num :
     for j in tel_list.keys():
