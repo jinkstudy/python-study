@@ -35,6 +35,62 @@ i9={}
 i10=None
 
 
+# (1) 간단한 if 확인
+a = -1
+if a :
+    print('True-1')  # True
+else:
+    print('False-1')
+
+if not a:
+    print('True-2') # 수행안됨.
+
+
+#(2) 논리 연산자 이용한 조건
+a = -1
+b = 10
+if a and b :
+    print('True-3')
+if a or b:
+    print('True-4')
+
+print(a and b) #b 출력 , 만약 0이 있다면 0출력
+print (a or b) #a 출력 , 만약 0이 있다면 0이 아닌 다른 값 출력
+
+
+#(3) find()- 해당글자를 찾으면 그 글자의 인덱스 반환
+print('=='*50)
+word = 'korea'
+if word.find('k'):
+    print('1>')
+
+print('=='*50)
+if word.find('z'):
+    print('2>')
+print('=='*50)
+
+if word.find('k') in range(len(word)):
+    print('3>')
+print('=='*50)
+
+
+#(3) 변수
+
+a,b = 0,1
+if a:
+    c=2
+elif b:
+    c=4
+else:
+    c=8
+print('C=',c) #C=4
+
+
+
+
+
+
+
 
 
 

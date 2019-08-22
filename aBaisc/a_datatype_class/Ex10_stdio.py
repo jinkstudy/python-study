@@ -2,6 +2,7 @@
     [ 콘솔 입력 처리 함수 ]
     - input() : 기본적으로 문자열로 입력받음
     - eval() : 함수로 감싸면 숫자 처리됨
+    - int() / float() /str() 함수 이용
 """
 '''
 name = input('이름은?')
@@ -14,7 +15,10 @@ print('당신은  {0}살 입니다.'.format(age+1))
 print('내년에는 %d살 입니다.' % (age+1))
 '''
 
-
+print('1+2') #1+2
+print(eval('1+2')) # 3
+print(type(eval('1'+'2'))) #int
+'''
 #사용자로부터 5개의 숫자를 읽어서 리스트에 저장하고 숫자들의 평균을 계산하여 출력한다.  또 숫자 중에서 평균을 상회하는 숫자가몇 개나 되는지 출력하여 보자.
 
 a=[]
@@ -59,13 +63,27 @@ num = int(input("단을 입력하세요"))
 
 for i in range(1,10):
     print('{0}X{1}={2}'.format(num,i,num*i))
-
+'''
 #-----------------------------------------
 # print() 함수
 
 
+print('안녕' '친구')
+print('안녕' + '친구')
+print('안녕' , '친구') # 띄어 쓰기 됨.
+
+for i in range(5):
+    print(i,end=' ') # 개행안됨
+
+for i in range(5):
+    print(i) #개행됨.
 
 # -------------------------------------------------------
 # 명령행 매개변수 받기 - java의 main() 함수의 인자
-# [ 콘솔에서 실행 ] python Ex09_stdio.py ourserver scott tiger
-#                                   0         1      2      3
+# [ 콘솔에서 실행 ] python a_datatype_class/Ex10_stdio.py ourserver scott tiger
+#                                   0                       1      2      3
+import sys
+args = sys.argv[2:]
+for i in args:
+    print('정보:' , i)
+

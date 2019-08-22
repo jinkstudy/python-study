@@ -8,12 +8,38 @@ def case2():
 
 def case3():
     print('case-3')
+f1= {'case1':case1, 'case2':case2, 'case3':case3}
+f2= {'case1':case1(), 'case2':case2(), 'case3':case3()}
+
+print(f1['case3']) #<function case3 at 0x000002CC7C4C2400>
+print(f1['case3']()) #case-3
+print(f2['case3']) #none
+
 
 
 
 #---------------------------------------
 # 글로벌 변수와 지역변수
 
+temp = '글로벌'
+def func():
+    #print('0>',temp) #에러! UnboundLocalError: local variable 'temp' referenced before assignment
+    temp='지역'
+    print('1>',temp) #1> 지역
+func()
+print('2>',temp) #2> 글로벌
+
+#글로벌 변수를 바꾸고 싶다면
+
+temp = '글로벌'
+def func():
+
+    global temp
+    print('0>', temp)  # 에러! UnboundLocalError: local variable 'temp' referenced before assignment
+    temp = "지역"
+    print('1>',temp) #1> 지역
+func()
+print('2>',temp) #2> 글로벌
 
 
 '''
@@ -26,6 +52,14 @@ def case3():
     
     종종 사용됨
 '''
+#일반함수
+def f(x,y) :
+    return x+y
+print(f(3,2)) #5
+
+
+f = lambda x,y : [x+y]
+print(f(3,2))
 
 
 
@@ -41,6 +75,44 @@ def case3():
     
     파이썬 2.x에서는 많이 사용하던 함수이지만, 최근 문법의 복잡성으로 권장하지 않는 추세란다.
 """
+ex = [1,2,3,4,5]
+def calc(c):
+    return c*2
+print(list(map(calc,ex)))
+
+calc = lambda c : c*2
+print(list(map(calc, ex)))
+
+
+
+from functools import reduce
+def cals(x,y):
+    return x*y
+print(reduce(cals,ex))
+
+cals = lambda x,y : x*y
+print(reduce(cals,ex))
+
+
+
+
+
+#1.
+def test(t):
+    t = 20
+    print("In Function:", t)
+x = 10
+print("Before:", x)
+test(x)
+print("After:", x)
+
+#2
+
+def sotring_function(list_value):
+    return list_value.sort()
+print(sotring_function([5,4,3,2,1]))
+
+
 
 
 

@@ -1,3 +1,41 @@
+
+class Sample:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return('이름 :{}\n 나이:{}'.format(self.name,self.age))
+
+    def __add__(self,other):
+        self.age += other
+
+    def __ge__(self,other):
+        if self.age >= other:return '성인입니다.'
+        else: return '미성년입니다'
+    def __bool__(self):
+        if self.name == '홍길동' : return True
+        else: return False
+
+s= Sample('홍길자',30)
+print(s)
+s+10
+print(s)
+print(s >=20)
+
+s1= Sample('홍길동',10)
+if s1:
+    print("홍길동 본인 인증")
+else :
+    print("홍길동 본인 아님")
+print(s1>=20)
+s1+10
+print(s1)
+print(s1>=20)
+
+
+
+
 """
     매직 메소드
 

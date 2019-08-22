@@ -27,6 +27,7 @@ def get_date():
     return choice(today)
 
 #프로그램 시작점
+
 print('1. mymodule.py __name__:', __name__)
 if __name__ == '__main__':
     today = get_weather()
