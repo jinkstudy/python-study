@@ -6,9 +6,23 @@
     존재하지 않는 파일명으로 예외가 발생해도 아무런 일을 하지 않는다
 """
 def count_words(filename):
-    pass  # pass 대신 완성
+    try:
+        with open('./data/'+filename, 'r', encoding='utf-8') as f:
+            content = f.read()
+            words = content.split()
+            # print(words)
+            num = len(words)
+    except FileNotFoundError as e:
+        pass
+    else:
+
+        print('파일의 총 단어 수 :', num)
+        print('\n2.정상종료')
+
 
 # 존재하지 않는 파일명도 있음
 filenames = ['data.txt', 'xxxx,xxx', 'pip-selfcheck.json']
 for filename in filenames:
+    print(filename)
     count_words(filename)
+

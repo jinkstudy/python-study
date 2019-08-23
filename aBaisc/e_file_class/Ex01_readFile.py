@@ -18,3 +18,57 @@
     - 파일을 열고 사용 후에는 반드시 닫아야 한다
 """
 
+f = open('./data/temp2.xml', 'r', encoding='utf-8')
+while True:
+    line = f.readline()
+    if not line: break
+    print(line, end="")
+f.close()
+
+print()
+
+try:
+    f1 = open('./data/temp2.xml', 'r', encoding='utf-8')
+
+except Exception as e:
+    print("예외:", e)
+else:
+    while True:
+        line = f1.readline()
+        if not line: break
+        print(line, end="")
+    f1.close()
+finally:
+
+    print('\n정상종료')
+
+#한줄씩읽기
+try:
+    with open('./data/temp2.xml', 'r', encoding='utf-8') as f:
+        while True:
+            line = f.readline()
+            if not line: break
+            print(line, end="")
+except FileNotFoundError as e:
+    print(e)
+else :
+    f.close()
+    print('\n정상종료')
+
+    print("*" * 50)
+
+# 한번에 읽기
+try:
+    with open('./data/temp2.xml', 'r', encoding='utf-8') as f:
+        content = f.read()
+        words = content.split()
+        #print(words)
+        num = len(words)
+
+except FileNotFoundError as e:
+    pass
+else :
+    f.close()
+    print('파일의 총 단어 수 :' , num)
+    print('\n2.정상종료')
+

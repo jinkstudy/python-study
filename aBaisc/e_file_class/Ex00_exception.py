@@ -22,7 +22,7 @@
 # 0으로 나누기
 #(1)
 10/0 -> 예외발생 : ZeroDivisionError: division by zero
-
+"""
 # (2)
 try:
      10/0
@@ -31,7 +31,11 @@ except Exception:
 
 # (3)
 try:
-     10/0
+     10/1
 except Exception  as e:
     print("예외:", e)
-"""
+else:
+    print('예외발생없음')
+finally:
+    print('정상종료')
+

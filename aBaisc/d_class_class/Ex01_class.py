@@ -129,3 +129,47 @@ s2.output()
 '''
 
 
+class Animal:
+    def move(self):
+        print('동물은 움직인다')
+
+
+class Wolf(Animal) : #Wolf가 Animal을 상속받는다
+    def move(self): #overriding
+        print("늑대는 네발로 달린다")
+
+    def move2(self):
+        print('2인간은 두발로 걷는다')
+
+class Human(Animal):
+    def move(self):
+        print('인간은 두발로 걷는다')
+
+    def move1(self):
+        print('1인간은 두발로 걷는다')
+
+class WolfHuman(Wolf, Human): #class 두개 상속
+    def move(self):
+        print('**'*20)
+        super().move() #늑대는 네발로 달린다 --> 먼저 기술한 class의 함수를 불러온다.
+        print('**' * 20)
+        print('늑대인간은 두발로 빠르게 달린다')
+
+
+class WolfHuman1(Human,Wolf): #class 두개 상속
+    def move(self):
+        print('**'*20)
+        super().move() #인간은 두발로 걷는다
+        print('**' * 20)
+        print('늑대인간은 두발로 빠르게 달린다')
+
+w = WolfHuman()
+w.move()
+w.move1()
+w.move2()
+
+w1=WolfHuman1()
+w1.move()
+w1.move1()
+w1.move2()
+
