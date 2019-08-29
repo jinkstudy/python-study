@@ -25,8 +25,21 @@ html = """
 """
 
 # 1. 데이타 파서하기
+soup = BeautifulSoup(html,'html.parser')
 
 # 2. 원하는 요소 접근하기
+h1 = soup.html.body.h1
+print(h1) #<h1>스크레이핑 연습</h1>
+print(h1.string) #스크레이핑 연습
+print(h1.text) #스크레이핑 연습
 
-# 3. 요소의 내용 추출하기
+
+# 3. p요소의 내용 추출하기
+h2 = soup.find('p') #<p>웹페이지 분석하자</p>
+h2 = soup.find_all('p') #[<p>웹페이지 분석하자</p>, <p>데이타 정제하기</p>]
+print(h2)
+print('*'*50)
+for h in h2:
+    print(h.string)
+
 

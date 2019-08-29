@@ -9,8 +9,16 @@ from urllib import request
 
 def enum_links(html,base):
     #-------------------------------------
+    soup = BeautifulSoup(html,'html.parser')
+    links=soup.select('a[href]')
+    #print(links)
 
     result = []
+    for a in links:
+        href = a.attrs['href']
+        url = parse.urljoin(base,href)
+        #print(url)
+        result.append(url)
     return result
 
 

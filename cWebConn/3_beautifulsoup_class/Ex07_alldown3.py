@@ -22,7 +22,26 @@ proc_files = {}
 # HTML을 분석하고 다운받는 함수
 def analyze_html(url, root_url):
     # ------------------------------------------------------
-    pass
+    savepath = Ex07_alldown2.download_file(url)
+
+    #없으면 return
+    if savepath is None: return
+    if savepath in proc_files :return
+    proc_files[savepath] = True # 작업한 파일을 배열에 추가.
+    #print(proc_files)
+
+    f = open(savepath,"r",encoding='utf-8')
+    html = f.read()
+    links = Ex07_alldown1.enum_links(html,url)
+    #print(links)
+
+    for url_link in links:
+        #url_link.find(root_url)가 없으면 -1뜸. if -1 = true이므로 처리 필요.
+        if url_link.find(root_url) !=0 : continue
+        if re.search(".html$",url_link):  # url_link에서 .html로 끝나는 것들을 찾아라.
+            analyze_html(url_link,root_url) # 자기 자신 호출?
+            continue
+        Ex07_alldown2.download_file(url_link)
 
 if __name__ == "__main__":
     # URL에 있는 모든 것 다운받기

@@ -3,6 +3,8 @@ http://www.pythonscraping.com/pages/warandpeace.html
 
 녹색 글자만 추출하여 출력
 
+
+
 -------------------------------------------
 
 http://www.pythonscraping.com/pages/page3.html

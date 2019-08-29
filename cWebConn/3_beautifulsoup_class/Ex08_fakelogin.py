@@ -20,3 +20,33 @@
         Form Data : m_id와 m_passwd 값 확인
 """
 
+import requests
+from bs4 import BeautifulSoup
+
+#세션 시작하기(쿠키, 권한 등을 요청하기 위해 사용하는 객체)
+
+sess = requests.session() #session을 가져오는 함수
+login_info = {
+    'm_id' : '',
+    'm_passwd' : ''
+}
+
+url_login = "http://www.hanbit.co.kr/member/login_proc.php"
+res = sess.post(url_login,data=login_info) # url_login 페이지를 post방식으로 요청하겠다.
+res.raise_for_status() #해당 사이트의 오류 발생 시 예외 발생.
+
+url_mypage = 'http://www.hanbit.co.kr/myhanbit/myhanbit.html'
+res = sess.get(url_mypage)
+res.raise_for_status()
+
+#결과값 파싱하여 원하는 데이터 얻어오기.
+soup = BeautifulSoup(res.text,'html.parser')
+#print(soup)
+
+mile = soup.select_one('.mileage_section1 span')
+print("마일리지는:", mile.text)
+mile1 = soup.select_one('.mileage_section2 span')
+print("한빛 이코인은:", mile1.text)
+
+
+

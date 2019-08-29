@@ -9,8 +9,8 @@
 from selenium import webdriver
 
 # 0. 네이버 로그인 정보
-myID = 'ohsin512'
-myPW = 'Silvina77^^'
+myID = ''
+myPW = ''
 
 # 1. webdriver 객체생성
 driver = webdriver.Chrome('./webdriver/chromedriver')
