@@ -6,6 +6,7 @@ class Menu:
         self.menu_cate = menu_cate
         self.menu_img = menu_img
 
+
     def result(self):
         print('{0}정보를 추가 하였습니다.'.format(self.menu_name))
 

@@ -180,7 +180,7 @@ print(''.join(msg.split(" ")))
 
 msg = "우리는 독도를 지킨다"
 print(msg.replace("독도","대한민국")) #원본이 변경되는 것은 아니다!
-print(msg.split())
+print(msg.split()[0])
 print(','.join(msg))
 
 
