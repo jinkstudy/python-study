@@ -1,0 +1,4 @@
+(base) >activate machine_learning_env
+(machine_learning_env)>pip install scikit-learn scipy matplotlib scikit-image pandas seaborn mglearn xlrd 
+(machine_learning_env)>pip install jupyterlab 
+(machine_learning_env)>jupyter  lab  c:\\작업디렉토리 
